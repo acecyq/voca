@@ -1,7 +1,8 @@
-<p>
-  <strong>Description:</strong>
-  <%= @order.description %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="container">
+	<h1 class="text-center">Description</h1>
+	<p class="text-center"><%= @order.description %></p>
+	<%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+	<br/>
+	<%= link_to 'Back', orders_path %>
+	<br/>
+</div>

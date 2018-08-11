@@ -16,7 +16,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-
     @order = Order.new
   end
 
