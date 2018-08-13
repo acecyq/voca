@@ -1,5 +1,8 @@
+require 'twilio-ruby'
+require 'dotenv/load'
+
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :sms]
   before_action :authenticate_user!
 
   # GET /orders
@@ -62,6 +65,24 @@ class OrdersController < ApplicationController
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sms
+    redirect_to @order
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    sender = '+19802701816' # Your Twilio number
+    receiver = '+6591827582' # Your mobile phone number
+  
+    client.messages.create(
+      from: sender,
+      to: receiver,
+      body: "Hi, your order is ready! See ya shortly!"
+    )
+
+    puts client
   end
 
   private

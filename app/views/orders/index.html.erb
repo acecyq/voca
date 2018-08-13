@@ -4,7 +4,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th class="col-md-9">Description</th>
+        <th class="col-md-8">Description</th>
+        <th class="col-md-1"></th>
         <th class="col-md-1"></th>
         <th class="col-md-1"></th>
         <th class="col-md-1"></th>
@@ -18,6 +19,7 @@
           <td><%= link_to 'Show', order %></td>
           <td><%= link_to 'Edit', edit_order_path(order) %></td>
           <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'SMS', sms_order_path(order) %></td>
         </tr>
       <% end %>
     </tbody>
