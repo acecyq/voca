@@ -63,3 +63,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Twilio
+gem 'twilio-ruby', '~> 5.12.1'
+
+# ENV variables
+gem 'dotenv-rails', groups: [:development, :test]
