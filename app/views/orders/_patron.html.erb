@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-6">Description</th>
+      <th class="col-md-6">Customer Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.description %></td>
+        <td><%= order.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
