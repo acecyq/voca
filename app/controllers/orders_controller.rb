@@ -3,12 +3,19 @@ require 'dotenv/load'
 
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :sms]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:home, :index]
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.where(user_id: current_user.id)
+    if user_signed_in?
+      @orders = Order.where(user_id: current_user)
+    elsif params[:store]
+      @user = User.find(params[:store])
+      @orders = Order.where(user_id: @user.id)
+    else
+      redirect_to home_orders_path
+    end
     # render json: @orders
   end
 
@@ -41,6 +48,21 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+
+    account_sid = ENV['TWILIO_ACCOUNT_SID']
+    auth_token = ENV['TWILIO_AUTH_TOKEN']
+    client = Twilio::REST::Client.new(account_sid, auth_token)
+
+    sender = '+19802701816' # Your Twilio number
+    receiver = '+65' + @order.number # Your mobile phone number
+  
+    client.messages.create(
+      from: sender,
+      to: receiver,
+      body: "Hi " + @order.name + ", you have placed an order with " + current_user.company_name + "!"
+    )
+
+    puts client
   end
 
   # PATCH/PUT /orders/1
@@ -83,6 +105,14 @@ class OrdersController < ApplicationController
     )
 
     puts client
+  end
+
+  def home
+    
+  end
+
+  def store
+
   end
 
   private

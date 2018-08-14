@@ -1,0 +1,26 @@
+<%= link_to 'New Order', new_order_path, class: "text-right" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-4">Description</th>
+      <th class="col-md-4">Customer Name</th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
+      <th class="col-md-1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.description %></td>
+        <td><%= order.name %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'SMS', sms_order_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

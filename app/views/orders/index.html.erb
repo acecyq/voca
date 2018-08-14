@@ -1,29 +1,16 @@
 <div class="container">
-  <h1 class="text-center">Orders</h1>
-  <%= link_to 'New Order', new_order_path, class: "text-right" %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="col-md-8">Description</th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-        <th class="col-md-1"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @orders.each do |order| %>
-        <tr>
-          <td><%= order.description %></td>
-          <td><%= link_to 'Show', order %></td>
-          <td><%= link_to 'Edit', edit_order_path(order) %></td>
-          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'SMS', sms_order_path(order) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <h1 class="text-center">
+    <% if params[:store] %>
+      <%= @user.company_name %>
+    <% else %>
+      <%= current_user.company_name %>
+    <% end %>
+  </h1>
+  <% if user_signed_in? %>
+    <%= render 'vendor' %>
+  <% else %>
+    <%= render 'patron' %>
+  <% end %>
   <br>
   
 </div>
