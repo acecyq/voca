@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get '/orders/:id/sms', to: 'orders#sms', as: 'sms_order'
   resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'orders#home'
+  root 'orders#index'
 end
