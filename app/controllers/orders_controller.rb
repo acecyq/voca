@@ -61,8 +61,6 @@ class OrdersController < ApplicationController
       to: receiver,
       body: "Hi " + @order.name + ", you have placed an order with " + current_user.company_name + "!"
     )
-
-    puts client
   end
 
   # PATCH/PUT /orders/1
@@ -103,16 +101,9 @@ class OrdersController < ApplicationController
       to: receiver,
       body: "Hi " + @order.name + ", your order is ready! See ya shortly!"
     )
-
-    puts client
   end
 
-  def home
-    
-  end
-
-  def store
-
+  def home 
   end
 
   private
