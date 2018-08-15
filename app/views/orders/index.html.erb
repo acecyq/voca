@@ -6,6 +6,7 @@
       <%= current_user.company_name %>
     <% end %>
   </h1>
+  <br/>
   <% if user_signed_in? %>
     <%= render 'vendor' %>
   <% else %>
@@ -14,4 +15,3 @@
   <br>
   
 </div>
-<%= javascript_pack_tag 'hello_react' %>

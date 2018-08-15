@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-	background-color: red;
+	background-color: #FA5770;
+}
+
+h1, h2, p, label, li, span {
 	color: white;
 }
 
 a {
 	text-decoration: none;
 	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+	font-weight: 600;
+}
+
+.table {
+	color: black;
 }

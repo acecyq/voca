@@ -1,12 +1,10 @@
 <%= form_tag(orders_path, method: "get") do %>
-  
-
   <div class="field form-group">
-    <%= label_tag "store" %>
-    <%= text_field_tag "store", nil, class: "form-control" %>
+    <%= label_tag "store", "Enter Store ID" %>
+    <%= text_field_tag "store", nil, class: "form-control", required: true %>
   </div>
 
   <div class="actions form-group">
-    <%= submit_tag "Go", class: "btn btn-primary" %>
+    <%= submit_tag "Go", class: "btn btn-outline-light text-light btn-lg" %>
   </div>
 <% end %>
