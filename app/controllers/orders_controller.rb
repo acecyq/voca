@@ -11,8 +11,13 @@ class OrdersController < ApplicationController
     if user_signed_in?
       @orders = Order.where(user_id: current_user)
     elsif params[:store]
-      @user = User.find(params[:store])
-      @orders = Order.where(user_id: @user.id)
+      if User.find_by id: params[:store]
+        @user = User.find(params[:store])
+        @orders = Order.where(user_id: @user.id)
+      else
+        render "home"
+        flash[:notice] = "Store ID does not exist"
+      end
     else
       redirect_to home_orders_path
     end

@@ -1,17 +1,25 @@
-<table class="table">
+<table class="table table-danger table-hover">
   <thead>
     <tr>
-      <th class="col-md-6">Description</th>
-      <th class="col-md-6">Customer Name</th>
+      <th class="w-5">S/No.</th>
+      <th class="w-65">Order</th>
+      <th class="w-15">Customer</th>
+      <th class="w-15">Time Passed</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @orders.each do |order| %>
+    <% @orders.each_with_index { |order, index| %>
       <tr>
+        <td><%= index + 1 %></td>
         <td><%= order.description %></td>
         <td><%= order.name %></td>
+        <td><%= time_ago_in_words(order.created_at) %> ago</td>
       </tr>
-    <% end %>
+    <% } %>
   </tbody>
 </table>
+<br/>
+<div align=center>
+  <%= link_to "Back", home_orders_path, class: "btn btn-danger" %>
+</div>
