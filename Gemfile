@@ -69,3 +69,6 @@ gem 'twilio-ruby', '~> 5.12.1'
 
 # ENV variables
 gem 'dotenv-rails', groups: [:development, :test]
+
+# qr code generator
+gem 'rqrcode'

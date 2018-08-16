@@ -2,8 +2,10 @@ require 'twilio-ruby'
 require 'dotenv/load'
 
 class OrdersController < ApplicationController
+  # skip_before_action :verify_authenticity_token, only: [:call]
+  protect_from_forgery except: :call
   before_action :set_order, only: [:show, :edit, :update, :destroy, :sms]
-  before_action :authenticate_user!, except: [:home, :index]
+  before_action :authenticate_user!, except: [:home, :index, :call]
 
   # GET /orders
   # GET /orders.json
@@ -109,6 +111,16 @@ class OrdersController < ApplicationController
   end
 
   def home 
+  end
+
+  def call
+    twiml = Twilio::TwiML::MessagingResponse.new do |r|
+      r.message body: 'The Robots are coming! Head for the hills!'
+    end
+
+    # content_type 'text/xml'
+
+    twiml.to_s
   end
 
   private
