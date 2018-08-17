@@ -1,5 +1,5 @@
 require 'twilio-ruby'
-require 'dotenv/load'
+# require 'dotenv/load'
 
 class OrdersController < ApplicationController
   # skip_before_action :verify_authenticity_token, only: [:call]
