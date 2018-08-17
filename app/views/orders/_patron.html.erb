@@ -1,24 +1,28 @@
+<div class="container-fluid">
+
 <table class="table table-danger table-hover">
   <thead>
-    <tr>
-      <th class="w-5">S/No.</th>
-      <th class="w-65">Order</th>
-      <th class="w-15">Customer</th>
-      <th class="w-15">Time Passed</th>
+    <tr class="d-flex">
+      <th class="col-1">S/No.</th>
+      <th class="col-7">Order</th>
+      <th class="col-2">Customer</th>
+      <th class="col-2">Time Passed</th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each_with_index { |order, index| %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= order.description %></td>
-        <td><%= order.name %></td>
-        <td><%= time_ago_in_words(order.created_at) %> ago</td>
+      <tr class="d-flex">
+        <td class="col-1"><%= index + 1 %></td>
+        <td class="col-7"><%= order.description %></td>
+        <td class="col-2"><%= order.name %></td>
+        <td class="col-2"><%= time_ago_in_words(order.created_at) %> ago</td>
       </tr>
     <% } %>
   </tbody>
 </table>
+
+</div>
 <br/>
 <div align=center>
   <%= link_to "Back", home_orders_path, class: "btn btn-danger btn-lg" %>
