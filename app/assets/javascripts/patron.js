@@ -4,7 +4,6 @@ window.onload = function() {
 	if (store) {
 		setTimeout(function() {
 			location.reload();
-			console.log("ok");
 		}, 3000);
 	}
 }

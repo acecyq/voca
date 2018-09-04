@@ -113,16 +113,6 @@ class OrdersController < ApplicationController
   def home 
   end
 
-  def call
-    twiml = Twilio::TwiML::MessagingResponse.new do |r|
-      r.message body: 'The Robots are coming! Head for the hills!'
-    end
-
-    # content_type 'text/xml'
-
-    twiml.to_s
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order

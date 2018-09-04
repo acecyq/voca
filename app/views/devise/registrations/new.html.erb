@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2>Sign Up</h2>
+  <h2 class="text-center">Sign Up</h2>
   
   <br/>
 
@@ -30,8 +30,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-danger" %>
+    <br/>
+
+    <div class="actions form-group" align="center">
+      <%= f.submit "Sign up", class: "btn btn-danger btn-lg" %>
     </div>
   <% end %>
 

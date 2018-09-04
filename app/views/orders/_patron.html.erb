@@ -4,9 +4,9 @@
   <thead>
     <tr class="d-flex">
       <th class="col-1">S/No.</th>
-      <th class="col-7">Order</th>
-      <th class="col-2">Customer</th>
-      <th class="col-2">Time Passed</th>
+      <th class="col-5">Order</th>
+      <th class="col-3">Customer</th>
+      <th class="col-3">Time Passed</th>
     </tr>
   </thead>
 
@@ -14,9 +14,9 @@
     <% @orders.each_with_index { |order, index| %>
       <tr class="d-flex">
         <td class="col-1"><%= index + 1 %></td>
-        <td class="col-7"><%= order.description %></td>
-        <td class="col-2"><%= order.name %></td>
-        <td class="col-2"><%= time_ago_in_words(order.created_at) %> ago</td>
+        <td class="col-5"><%= order.description %></td>
+        <td class="col-3"><%= order.name %></td>
+        <td class="col-3"><%= time_ago_in_words(order.created_at) %> ago</td>
       </tr>
     <% } %>
   </tbody>

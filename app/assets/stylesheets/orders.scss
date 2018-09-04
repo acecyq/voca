@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
 	background-color: #FA5770;
+	font-size: 1.2rem;
 }
 
 h1, h2, p, label, li, span {
@@ -20,6 +21,55 @@ a:hover {
 	font-weight: 600;
 }
 
+td .btn {
+	padding: 0;
+	font-size: 1.2rem;
+}
+
 .table {
 	color: black;
+}
+
+@media only screen and (max-width: 575.98px) {
+	body {
+		font-size: 0.5rem;
+	}
+
+	td .btn {
+		font-size: 0.3rem;
+		padding: 0 15px 0 0;
+	}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) { 
+	body {
+		font-size: 0.6rem;
+	}
+
+	td .btn {
+		font-size: 0.5rem;
+		padding: 0 15px 0 0;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) { 
+	body {
+		font-size: 0.8rem;
+	}
+
+	td .btn {
+		font-size: 0.7rem;
+		padding: 0;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+	body {
+		font-size: 1.0rem;
+	}
+
+	td .btn {
+		font-size: 0.9rem;
+		padding: 0;
+	}
 }
